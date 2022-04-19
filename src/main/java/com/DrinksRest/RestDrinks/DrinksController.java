@@ -1,7 +1,6 @@
 package com.DrinksRest.RestDrinks;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class DrinksController {
@@ -17,13 +16,13 @@ public class DrinksController {
     String pureeMeasure;
     String measurement;
 
-    @RequestMapping("/MakeDrinks")
+    @RequestMapping("/welcomeDrinks")
     public String welcomeDrinks() {
 
         return "lets make some drinks";
     }
 
-    @RequestMapping("/MakeDrinks/PinaColada")
+    @RequestMapping("/Drinks/PinaColada")
     public String pinaColada() {
 
         name = "Pina Colada";
@@ -43,7 +42,7 @@ public class DrinksController {
                 " " + juiceMeasure;
     }
 
-    @RequestMapping("/MakeDrinks/Daiquiri")
+    @RequestMapping("/Drinks/Daiquiri")
     public String daiquiri() {
 
         name = "Daiquiri";
@@ -61,6 +60,26 @@ public class DrinksController {
                 " " + juiceMeasure +
                 " " + sweet +
                 " " + measurement;
+    }
+
+    @GetMapping("/Drinks/Get")
+    public String getDrink() {
+        return "HTTP GET drink request was sent";
+    }
+
+    @PutMapping("/Drinks/Put")
+    public String updateDrink() {
+        return "HTTP PUT drink request has been sent";
+    }
+
+    @PostMapping("/Drinks/Post")
+    public String createADrink() {
+        return "HTTP POST drink request has been sent";
+    }
+
+    @DeleteMapping("/Drinks/Delete")
+    public String deleteDrink() {
+        return "HTTP DELETE drink request has been sent";
     }
 
 }
